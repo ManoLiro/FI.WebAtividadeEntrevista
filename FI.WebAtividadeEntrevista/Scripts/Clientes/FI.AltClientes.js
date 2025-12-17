@@ -10,15 +10,17 @@ $(document).ready(function () {
         $('#formCadastro #Cidade').val(obj.Cidade);
         $('#formCadastro #Logradouro').val(obj.Logradouro);
         $('#formCadastro #Telefone').val(obj.Telefone);
+        $('#formCadastro #CPF').val(obj.CPF);
+        beneficiarios = JSON.parse(obj.Beneficiarios);
     }
 
     $('#formCadastro').submit(function (e) {
-        e.preventDefault();
-        
+        e.preventDefault();    
         $.ajax({
             url: urlPost,
             method: "POST",
             data: {
+                "Id": obj.Id,
                 "NOME": $(this).find("#Nome").val(),
                 "CEP": $(this).find("#CEP").val(),
                 "Email": $(this).find("#Email").val(),
@@ -27,7 +29,9 @@ $(document).ready(function () {
                 "Estado": $(this).find("#Estado").val(),
                 "Cidade": $(this).find("#Cidade").val(),
                 "Logradouro": $(this).find("#Logradouro").val(),
-                "Telefone": $(this).find("#Telefone").val()
+                "Telefone": $(this).find("#Telefone").val(),
+                "CPF": $(this).find("#CPF").val(),
+                "Beneficiarios": JSON.stringify(beneficiarios)
             },
             error:
             function (r) {
@@ -44,7 +48,6 @@ $(document).ready(function () {
             }
         });
     })
-    
 })
 
 function ModalDialog(titulo, texto) {

@@ -7,6 +7,8 @@
         var urlPost = '@Url.Action("Incluir", "Cliente", new { area = "" })';
     </script>
     @Scripts.Render("~/bundles/clientes")
+    @Scripts.Render("~/bundles/utils")
+    @Scripts.Render("~/bundles/beneficiarios")
 }
 <h2>@Html.Raw(ViewBag.Title)</h2>
 @Html.Partial("Forms")

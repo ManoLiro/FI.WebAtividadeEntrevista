@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
+using FI.AtividadeEntrevista.Helper;
 
 namespace WebAtividadeEntrevista.Models
 {
@@ -11,6 +8,26 @@ namespace WebAtividadeEntrevista.Models
     /// </summary>
     public class ClienteModel
     {
+        public ClienteModel()
+        {
+        }
+
+        public ClienteModel(long id, string cEP, string cidade, string email, string estado, string logradouro, string nacionalidade, string nome, string sobrenome, string telefone, string cPF, string beneficiarios)
+        {
+            Id = id;
+            CEP = cEP;
+            Cidade = cidade;
+            Email = email;
+            Estado = estado;
+            Logradouro = logradouro;
+            Nacionalidade = nacionalidade;
+            Nome = nome;
+            Sobrenome = sobrenome;
+            Telefone = telefone;
+            CPF = StringFormatter.FormatarCPF(cPF);
+            Beneficiarios = beneficiarios;
+        }
+
         public long Id { get; set; }
         
         /// <summary>
@@ -67,5 +84,17 @@ namespace WebAtividadeEntrevista.Models
         /// </summary>
         public string Telefone { get; set; }
 
-    }    
+        /// <summary>
+        /// CPF
+        /// </summary>
+        [Required]
+        [RegularExpression(@"^\d{3}\.\d{3}\.\d{3}\-\d{2}$", ErrorMessage = "Digite um CPF válido")]
+        public string CPF { get; set; }
+
+        /// <summary>
+        /// Beneficiarios
+        /// </summary>
+        public string Beneficiarios { get; set; }
+
+    }
 }

@@ -32,11 +32,20 @@ namespace FI.WebAtividadeEntrevista
             bundles.Add(new ScriptBundle("~/bundles/clientes").Include(
                       "~/Scripts/Clientes/FI.Clientes.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/utils").Include(
+                     "~/Scripts/Helper/utils.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/listClientes").Include(
                       "~/Scripts/Clientes/FI.ListClientes.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/altClientes").Include(
                       "~/Scripts/Clientes/FI.AltClientes.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/beneficiarios").Include(
+                      "~/Scripts/Clientes/FI.Beneficiarios.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/toastrjs").Include(
+                      "~/Scripts/toastr.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -44,6 +53,9 @@ namespace FI.WebAtividadeEntrevista
 
             bundles.Add(new StyleBundle("~/Content/jtable").Include(
                       "~/Scripts/jtable/themes/metro/darkgray/jtable.css"));
+
+            bundles.Add(new StyleBundle("~/Content/toastrcss").Include(
+                        "~/Content/toastr.min.css"));
         }
     }
 }

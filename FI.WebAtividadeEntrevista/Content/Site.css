@@ -8,3 +8,18 @@
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.icone-interrogacao {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: #6c757d;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: help;
+    margin-left: 5px;
+}
